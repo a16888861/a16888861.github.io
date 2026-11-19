@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        阿森的Blog
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            日记
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <center><h1>记录日常</h1></center>
+
+<h3 id="2025-03-03"><a href="#2025-03-03" class="headerlink" title="2025-03-03"></a>2025-03-03</h3><p>最近把阿里云百炼ai接进来了<br>还挺好用 定好模版直接分析访客标签出话术<br>第一次写流式输出 这里记录一下</p>
+<details>
+<summary>点击展开 Java 代码</summary>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 访客详情Ai跟进 */</span></span><br><span class="line">    <span class="meta">@PostMapping(</span></span><br><span class="line"><span class="meta">            value = &quot;visitorDetailAiAnalyse&quot;,</span></span><br><span class="line"><span class="meta">            produces = MediaType.TEXT_EVENT_STREAM_VALUE</span></span><br><span class="line"><span class="meta">    )</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> SseEmitter <span class="title">visitorDetailAiAnalyse</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="meta">@RequestBody</span> VisitorDetailAiAnalyseReq req</span></span></span><br><span class="line"><span class="params"><span class="function">    )</span> </span>&#123;</span><br><span class="line">        req.checkParams();</span><br><span class="line">        <span class="comment">// 不是取历史结果就生成新的</span></span><br><span class="line">        aiApplication.visitorSpuDetailAiAnalyseAsync(</span><br><span class="line">                req,</span><br><span class="line">                XcxRequestContext.getCheckUserInfo()</span><br><span class="line">        );</span><br><span class="line">        <span class="keyword">return</span> aiApplication.visitorDetailAiAnalyse(</span><br><span class="line">                req,</span><br><span class="line">                XcxRequestContext.getUserInfo().getUserId()</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">String systemContent = aiDefaultSystemSmg.getContent().replace(<span class="string">&quot;[机构名称]&quot;</span>, companyInfo.getCompanyName());</span><br><span class="line">        <span class="comment">// 构建分析请求</span></span><br><span class="line">        String questionContent = queryVisitorActionDetailDto == <span class="keyword">null</span> ? <span class="string">&quot;无用户行为数据&quot;</span> : queryVisitorActionDetailDto.buildColumnAiDesc(companyInfo.getCompanyUserId(), <span class="keyword">false</span>);</span><br><span class="line">        StringBuilder contentBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        contentBuilder</span><br><span class="line">                .append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">                .append(<span class="string">&quot;&lt;用户行为数据&gt;&quot;</span>)</span><br><span class="line">                .append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">                .append(questionContent)</span><br><span class="line">                .append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">                .append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">                .append(<span class="string">&quot;&lt;商品排行榜数据&gt;&quot;</span>)</span><br><span class="line">                .append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">                .append(wuHanApi.liveSpuCsvStringByPlatformId(taskInfo.getPlatformId()));</span><br><span class="line">        Generation gen = <span class="keyword">new</span> Generation();</span><br><span class="line">        List&lt;Message&gt; messages = Lists.newArrayList();</span><br><span class="line">        messages.add(Message</span><br><span class="line">                .builder()</span><br><span class="line">                .role(Role.SYSTEM.getValue())</span><br><span class="line">                <span class="comment">// 前置系统文案，告诉模型对话上下文及注意事项</span></span><br><span class="line">                .content(systemContent)</span><br><span class="line">                .build()</span><br><span class="line">        );</span><br><span class="line">        <span class="comment">// 本次聊天文案</span></span><br><span class="line">        messages.add(Message.builder().role(Role.USER.getValue()).content(contentBuilder.toString()).build());</span><br><span class="line">        GenerationParam generationParam = buildGenerationParamStream(messages);</span><br><span class="line">        Flowable&lt;GenerationResult&gt; result;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            result = gen.streamCall(generationParam);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            log.error(<span class="string">&quot;通过流生成结果失败, errMsg:&#123;&#125;&quot;</span>, e.getMessage(), e);</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> BusinessServiceException(<span class="string">&quot;通过流生成结果失败&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 流程处理完毕的后置处理</span></span><br><span class="line">        result.subscribe(</span><br><span class="line">                nextMessage -&gt; &#123;</span><br><span class="line">                    GenerationOutput.Choice choice = nextMessage.getOutput().getChoices().get(<span class="number">0</span>);</span><br><span class="line">                    <span class="comment">// 思考过程，就是思考过程中的自言自语</span></span><br><span class="line">                    String reasoning = choice.getMessage().getReasoningContent();</span><br><span class="line">                    <span class="keyword">if</span> (StringUtils.isNotBlank(reasoning)) &#123;</span><br><span class="line">                        <span class="comment">// 业务上处理思考过程</span></span><br><span class="line">                        eventData.appendReasoningData(reasoning);</span><br><span class="line">                        emitter.send(</span><br><span class="line">                                VisitorDetailAiAnalyseDto.builder()</span><br><span class="line">                                        .reasoning(reasoning)</span><br><span class="line">                                        .finishReason(<span class="string">&quot;&quot;</span>)</span><br><span class="line">                                        .output(<span class="string">&quot;&quot;</span>)</span><br><span class="line">                                        .build()</span><br><span class="line">                        );</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// 思考结果</span></span><br><span class="line">                    String content = choice.getMessage().getContent();</span><br><span class="line">                    <span class="keyword">if</span> (StringUtils.isNotBlank(content)) &#123;</span><br><span class="line">                        eventData.appendData(content);</span><br><span class="line">                        emitter.send(</span><br><span class="line">                                VisitorDetailAiAnalyseDto.builder()</span><br><span class="line">                                        .output(content)</span><br><span class="line">                                        .finishReason(<span class="string">&quot;&quot;</span>)</span><br><span class="line">                                        .reasoning(<span class="string">&quot;&quot;</span>)</span><br><span class="line">                                        .build()</span><br><span class="line">                        );</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// 结束后处理</span></span><br><span class="line">                    String finishReason = choice.getFinishReason();</span><br><span class="line">                    <span class="keyword">if</span> (<span class="string">&quot;stop&quot;</span>.equals(finishReason)) &#123;</span><br><span class="line">                        emitter.send(</span><br><span class="line">                                VisitorDetailAiAnalyseDto.builder()</span><br><span class="line">                                        .reasoning(<span class="string">&quot;&quot;</span>)</span><br><span class="line">                                        .output(<span class="string">&quot;&quot;</span>)</span><br><span class="line">                                        .finishReason(<span class="string">&quot;stop&quot;</span>)</span><br><span class="line">                                        .build()</span><br><span class="line">                        );</span><br><span class="line">                        <span class="comment">// 流已经发送完毕 业务上是否要额外处理</span></span><br><span class="line">                        aiContantRecordRepo.save(</span><br><span class="line">                                AiContantRecord.builder()</span><br><span class="line">                                        .taskId(req.getTaskId())</span><br><span class="line">                                        .userId(userId)</span><br><span class="line">                                        .wxUnionId(req.getUnionId())</span><br><span class="line">                                        .wxMemberId(req.getWxMemberId())</span><br><span class="line">                                        .question(systemContent + <span class="string">&quot;\n&quot;</span> + contentBuilder)</span><br><span class="line">                                        .content(eventData.getEventData())</span><br><span class="line">                                        .reasoning(eventData.getReasoningData())</span><br><span class="line">                                        .build()</span><br><span class="line">                        );</span><br><span class="line">                        <span class="comment">// 清空 StringBuilder 中的数据</span></span><br><span class="line">                        eventData.clearData();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                throwable -&gt; &#123;</span><br><span class="line">                    log.info(<span class="string">&quot;ai分析结果，过程出现异常&quot;</span>, throwable);</span><br><span class="line">                    eventData.clearData();</span><br><span class="line">                    emitter.completeWithError(throwable);</span><br><span class="line">                &#125;,</span><br><span class="line">                emitter::complete</span><br><span class="line">        );</span><br><span class="line">        <span class="keyword">return</span> emitter;</span><br></pre></td></tr></table></figure>
+<p>核心就是SseEmitter那套</p>
+</details>
+
+<h3 id="2025-09-27"><a href="#2025-09-27" class="headerlink" title="2025-09-27"></a>2025-09-27</h3><h4 id="ollama搭建小模型"><a href="#ollama搭建小模型" class="headerlink" title="ollama搭建小模型"></a>ollama搭建小模型</h4><p>ai最近爆发 一天一个样<br>想自己搞个小模型玩<br>网上搜到的教程用的都是ollama<br>于是在黑苹果上试了试 效果还行<br>我这小配置跑跑老模型还是很不错的<br>魔改机+黑苹果真无敌</p>
+<h3 id="2025-11-03"><a href="#2025-11-03" class="headerlink" title="2025-11-03"></a>2025-11-03</h3><p>感觉家里人最近都魔怔了<br>疯狂催找对象 好烦！！！！！</p>
+<hr>
+<center>所有的一切，仅仅是因为喜欢。</center>
+
+
+    </div>
+
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2021 <a class="flink" target="_blank" rel="noopener" href="https://github.com/a16888861">Elliot</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="CmCti21ooOOIzFOhEyFkFvR0-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="FqiyUqbg7McKN2eG0MCewupf">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
+
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
+
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
+</body>
+
+</html>
