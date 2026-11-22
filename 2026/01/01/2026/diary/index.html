@@ -48,6 +48,12 @@
 <h3 id="2026-07-13"><a href="#2026-07-13" class="headerlink" title="2026-07-13"></a>2026-07-13</h3><p>家里又催我相亲 烦死了！！！<br>这都催几年了。。。</p>
 <h3 id="2026-11-19"><a href="#2026-11-19" class="headerlink" title="2026-11-19"></a>2026-11-19</h3><p>近期发生的事情<br>遇到了现在的对象 &amp; 得找工作<br>Java还有出路吗？<br>都想转agent开发了</p>
 <p>然后 目前将网站托管github 并且同步Vercel &amp; 关闭了小黄云加速<br>现在网站跑起来就很舒服了</p>
+<h3 id="2026-11-22"><a href="#2026-11-22" class="headerlink" title="2026-11-22"></a>2026-11-22</h3><h4 id="R36S游戏机记录"><a href="#R36S游戏机记录" class="headerlink" title="R36S游戏机记录"></a>R36S游戏机记录</h4><p>最近手里又开始折腾r36s了<br>给这小玩意儿买了个Wi-Fi模块 还挺好用<br>找ai辅助问了一下型号 型号是RTL8188EUS 淘宝6块多一个<br><img src="/img/2026/2.jpg" alt="avatar"></p>
+<p>刷的系统是DarkosEn<br>github地址:<a target="_blank" rel="noopener" href="https://github.com/djparentx/dArkOSen-R36S">https://github.com/djparentx/dArkOSen-R36S</a></p>
+<p>之前刷的是ArkOs和EE 但是没这个系统好用<br>据说这个在性能上有极大的优化 但是主题也好看<br>焊接好是这样的<br><img src="/img/2026/3.jpg" alt="avatar"></p>
+<p>然后接了星露谷进来玩 因为是ports游戏 这里记录一下简单的移植过程<br>ports游戏移植过程<br>1.postmaster就不说怎么安装了 b站一堆<br>先去postmaster的官方网站找到星露谷的基础包<br>网站地址: <a target="_blank" rel="noopener" href="https://portmaster.games/games/">https://portmaster.games/games/</a><br>名字叫Stardew Valley Compatibility<br>这个版本是针对r36s有处理的 速度能快上不少<br>如果是另一个版本 需要额外配置.net环境</p>
+<p>2.然后到steam上下载游戏 此处需要注意<br>要右键属性 然后在测试版里面选择compatibility后再进行下载<br>这个版本是兼容性版本32位的 普通版是64位的<br>他俩区别就差一个SMAPI(装mod用) 剩下的完全一致<br>但是兼容性版本性能好 毕竟r36s用的是rk3326<br>如果装64位版本 还需要额外去找.net环境的包丢进去处理<br>再加上r36s本来玩星露谷就有点性能不太够了 除非你想玩轻度mod 不然还是兼容版比较好<br>下载好后 找到游戏目录 macos会把游戏文件拆在 MacOS 和 Resources 两个目录里<br>然后找到之前下载的基础包 解压之后 找到里面的gamedata<br>复制 Contents/MacOS 里的全部文件 然后丢到gamedata文件夹里面<br>然后找到Contents/Resources目录 里面的文件除了App.icon 也全部丢到gamedata文件夹里面<br>处理好之后把脚本和游戏文件夹 丢到游戏机内存卡的ports目录下即可</p>
+<p>最后 丢一张折腾好的图上来<br><img src="/img/2026/4.jpg" alt="avatar"></p>
 <hr>
 <center>所有的一切，仅仅是因为喜欢。</center>
 
